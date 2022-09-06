@@ -56,20 +56,27 @@ print(repeated_names(['jamie','lanny','evan','jj','nevin']))
 
 def sort_list(unsorted_list):
     """
-    The given code will run more depending on the size of the input making it linear O(n)
-    The bigger the unsorted_list gets, more numbers will need to determine if it is higher or lower than the next
+    The given code will run more depending on the size of the input making it Quadratic O(n^2)
+    The bigger the unsorted_list gets, the more times the for loop will have to check each number with the number next to it
     """
+    
     list_unchanged = False
     while list_unchanged == False:
+        
         list_unchanged = True
         for current_index in range(len(unsorted_list)-1):
+            
             next_index = current_index + 1
             if unsorted_list[current_index] > unsorted_list[next_index]:
                 changed_number = unsorted_list.pop(next_index)
                 unsorted_list.insert(current_index, changed_number)
                 list_unchanged = False
+
+
+       
     return unsorted_list
 
 print(sort_list([4,6,9,1,2,5,6]))
 print(sort_list([4,6,9,1,2,5,6,5,5,5,123,44,40]))
+print(sort_list([8,7,6,5,4,3,2,1]))
 
